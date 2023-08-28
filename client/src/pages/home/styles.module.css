@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(209 210 230);
+    background: hsl(0deg 0.07% 96.53%);
   }
   .formContainer {
     width: 400px;
