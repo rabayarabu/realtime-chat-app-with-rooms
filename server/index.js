@@ -5,6 +5,7 @@ const cors = require('cors');
 const { Server } = require('socket.io');
 require('dotenv').config();
 const harperSaveMessage = require('./services/harper-save-message');
+const harperGetMessages = require('./services/harper-get-messages');
 
 app.use(cors()); // Add cors middleware
 const server = http.createServer(app);
@@ -27,7 +28,14 @@ io.on('connection', (socket) => {
   socket.on('join_room', (data) => {
     const { username, room } = data; // Data sent from client when join_room event emitted
     socket.join(room); // Join the user to a socket room
-
+ // Get last 100 messages sent in the chat room
+ harperGetMessages(room)
+ .then((last100Messages) => {
+   // console.log('latest messages', last100Messages);
+   socket.emit('last_100_messages', last100Messages);
+ })
+ .catch((err) => console.log(err));
+    
     let __createdtime__ = Date.now(); // Current timestamp
     // Send message to all users currently in the room, apart from the user that just joined
     socket.to(room).emit('receive_message', {
@@ -54,6 +62,7 @@ io.on('connection', (socket) => {
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
   });
+  
 });
 
 server.listen(4000, () => 'Server is running on port 4000');

@@ -1,25 +1,16 @@
+let axios = require('axios');
 
-var axios = require('axios');
-
-function harperSaveMessage(message, username, room) {
+function harperGetMessages(room) {
   const dbUrl = process.env.HARPERDB_URL;
   const dbPw = process.env.HARPERDB_PW;
   if (!dbUrl || !dbPw) return null;
 
-  var data = JSON.stringify({
-    operation: 'insert',
-    schema: 'realtime_chat_app',
-    table: 'messages',
-    records: [
-      {
-        message,
-        username,
-        room,
-      },
-    ],
+  let data = JSON.stringify({
+    operation: 'sql',
+    sql: `SELECT * FROM realtime_chat_app.messages WHERE room = '${room}' LIMIT 100`,
   });
 
-  var config = {
+  let config = {
     method: 'post',
     url: dbUrl,
     headers: {
@@ -40,4 +31,4 @@ function harperSaveMessage(message, username, room) {
   });
 }
 
-module.exports = harperSaveMessage;
+module.exports = harperGetMessages;
