@@ -1,22 +1,22 @@
 .chatContainer {
-  max-width: 1150px;
-  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 4fr;
   gap: 20px;
   background-color: #dfdfdf;
   margin-right: 0px;
   margin-left: 0px;
+  padding-left: 20px;margin-top: 10px;
+
 }
 
 /* Room and users component */
 .roomAndUsersColumn {
   margin-top: 8px;
-  padding: 30px;
+  padding: 70px;
   border-right: 1px solid #dfdfdf;
   background-color: #dfdfdf;
-  border-radius: 50px;
-  box-shadow: inset 0 -6em 6em rgb(42 28 28 / 10%), 0 0 0 0 hsl(260deg 27.61% 92.6%), 0.6em 0.6em 2em hsl(243.59deg 42.17% 32.45%);
+  border-radius: 30px;
+  box-shadow: inset 0 -6em 6em rgb(63, 73, 204), 0 0 0 0 hsl(260deg 27.61% 92.6%), 0.6em 0.6em 2em hsl(242, 31%, 47%);
 }
 .roomTitle {
   text-transform: uppercase;
@@ -43,16 +43,16 @@
   padding: 10px 10px 10px 40px;
 }
 .message {
-  background: rgb(0, 24, 111);
+  background: rgb(63, 73, 204);
   border-radius: 6px;
   margin-bottom: 24px;
-  max-width: 600px;
+  width: 1000px;
   padding: 12px;
-  box-shadow: inset 0 -6em 6em rgb(42 28 28 / 10%), 0 0 0 0 hsl(260deg 27.61% 92.6%), 0.6em 0.6em 2em hsl(243.59deg 42.17% 32.45%);
+  box-shadow: inset 0 -6em 6em rgba(113, 83, 83, 0.1), 0 0 0 0 hsl(257, 40%, 82%), 0.6em 0.6em 2em hsla(240, 9%, 41%, 0.74);
 }
 .msgMeta {
-  color: rgb(153, 217, 234);
-  font-size: 0.75rem;
+  color: rgb(229, 238, 241);
+  font-size: 1rem;
 }
 .msgText {
   color: #fff;
@@ -67,10 +67,13 @@
   margin-right: 16px;
   width: 75%;
   border-radius: 6px;
-  border: 1px solid rgb(153, 217, 234);
+  border: none;
   font-size: 0.9rem;
-  box-shadow: inset 0 -6em 6em rgb(42 28 28 / 10%), 0 0 0 0 hsl(260deg 27.61% 92.6%), 0.6em 0.6em 2em hsl(243.59deg 42.17% 32.45%);
+  
 }
 .btn.btn-primary {
   box-shadow: inset 0 -6em 6em rgb(42 28 28 / 10%), 0 0 0 0 hsl(260deg 27.61% 92.6%), 0.6em 0.6em 2em hsl(243.59deg 42.17% 32.45%);
+}
+button:hover {
+  background-color: #dfdfdf;
 }
