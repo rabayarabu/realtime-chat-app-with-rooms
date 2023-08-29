@@ -12,7 +12,7 @@ const server = http.createServer(app);
 // Create an io server and allow for CORS from http://localhost:3000 with GET and POST methods
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:3000',
+    origin: 'https://api.render.com/deploy/srv-cjn01kfjbvhs738ljsp0?key=14LUh7wYSFA',
     methods: ['GET', 'POST'],
   },
 });
